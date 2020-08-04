@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="top">
+      <div class="home-page-form">
+        <center>
+            <div class="login-form">
+                <h1>LOG IN</h1>
+                <br>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="uname" class="form-control" placeholder="Email / User Name">
+                    <br>
+                    <input type="password" name="pass" class="form-control" placeholder="Password">
+                    <br>
+                    <button type="submit" class="btn btn-dark">LOG IN</button>
+                </form>
+                <hr>
+                <h3>or</h3>
+                <h4><a href="{% url 'register' %}" class="register-link">REGISTER</a> </h4>
+            </div>
+        </center>
+      </div>
+    </div>
+
+
+
+{% endblock content %}

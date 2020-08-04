@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<center>
+
+    <h1> Rooms Available </h1>
+
+    <div class="featured">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for type in room %}
+        <div class="col">
+          <div class="card text-white bg-dark">
+            <img src="{{type.image.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{type.typename}}</h5>
+                <a href="{% url 'detail' type.typename %}" class="btn btn-secondary view-btn">VIEW</a>
+                <a href="{% url 'book' %}" class="btn btn-secondary book-btn">BOOK</a>
+                <span class="price">{{type.roomprice}}₹ / DAY</span>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+</center>
+{% endblock content %}

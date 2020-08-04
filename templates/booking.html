@@ -1,0 +1,52 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<center>
+    <h1>Booking Form</h1>
+    <div class="booking">
+        <div class="booking-form">
+            <br>
+            <form action="{% url 'book' %}" method="post">
+                {% csrf_token %}
+                <select class="form-control" name="room_type">
+                    <option selected>Choose Room</option>
+                    <option value="Royal">Royal Suite</option>
+                    <option value="Luxury">Luxury Suite</option>
+                    <option value="Delux">Delux Suite</option>
+                    <option value="Premier">Primier Suite</option>
+                </select><br>
+                <h4> Select Date</h4>
+                <input type="date" class="form-control" name="a_date">
+                To
+                <input type="date" class="form-control" name="d_date"><br>
+                <select class="form-control" name="guest_adult">
+                  <option selected>No. of Adults</option>
+                  <option value="1">1</option>
+                  <option value="1">2</option>
+                  <option value="2">3</option>
+                  <option value="More">More Than 3</option>
+                </select>
+                <br>
+                <select class="form-control" name="guest_childrens">
+                  <option selected>No. of Childrens</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="More">More Than 3</option>
+                </select>
+                <br>
+                <input type="password" class="form-control" name="pass" placeholder="Enter Password"><br>
+
+                <button type="submit" class="btn btn-dark">Book Now</button>
+                <br>
+                <br>
+                <h6>
+                    {% for m in messages %}
+                        {{m}}
+                    {% endfor %}
+                </h6>
+            </form>
+        </div>
+    </div>
+</center>
+{% endblock content %}

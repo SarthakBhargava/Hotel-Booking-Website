@@ -1,0 +1,56 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+    <center>
+        <div class="acc-nav row">
+            <div class="col">
+                <a href="{% url 'account' %}" class="nav-link link">Bookings</a>
+            </div>
+            <div class="col">
+                <a href="{% url 'profile' %}" class="nav-link link">Profile</a>
+            </div>
+            <div class="col">
+                <a href="{% url 'logout' %}" class="nav-link link">Logout</a>
+            </div>
+        </div>
+    </center>
+    {% block content_ %}
+        <div class="current">
+            <div class="current-booking">
+                <h1>Current Booking</h1>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                  {% for booking in bookings %}
+                    {% if booking.user == request.user %}
+                      <div class="col">
+                        <div class="card text-white bg-dark">
+                          <img src="{{}}" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                          </div>
+                        </div>
+                      </div>
+                    {% endif %}
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="previous">
+            <div class="previous-booking">
+                <h1>Previous Bookings</h1>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                  <div class="col">
+                    <div class="card">
+                      <img src="..." class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    {% endblock content_ %}
+{% endblock content %}

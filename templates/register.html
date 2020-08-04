@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="top">
+      <div class="home-page-form">
+        <center>
+        <span class="h2">Register</span><br><br>
+
+        <form class="register-form" action="" method="post">
+          {% csrf_token %}
+            <input type="text" name="fname" class="form-control" placeholder="First Name">
+            <br>
+            <input type="text" name="lname" class="form-control" placeholder="Last Name">
+            <br>
+            <input type="email" name="email" class="form-control" placeholder="Enter E-mail">
+            <br>
+            <input type="text" name="uname" class="form-control" placeholder="User Name">
+            <br>
+            <input type="password" name="pass" class="form-control" placeholder="Password">
+            <br>
+            <input type="password" name="cpass" class="form-control" placeholder="Confirm Password">
+            <br>
+            <button type="submit" class="btn btn-dark">REGISTER</button>
+        </form>
+        </center>
+      </div>
+    </div>
+
+
+{% endblock content %}
